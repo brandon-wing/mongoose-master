@@ -4,7 +4,6 @@ const reactionSchema = new Schema(
       reactionId: {
         type: Schema.Types.ObjectId,
         //default value is set to a unique mongoose objectID
-        default: new mongoose.Types.ObjectId()
       },
       reactionBody: {
         type: String,

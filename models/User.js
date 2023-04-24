@@ -1,6 +1,6 @@
 //schema + model uses mongoose
 const { Schema, model } = require('mongoose');
-//create the user schema!!!
+//create the user schema in order to create a model!!!
 const userSchema = new Schema(
   {
     username: {
@@ -21,11 +21,11 @@ const userSchema = new Schema(
         //references Thought model
         ref: 'Thought'
     },
-    friends: {
+    friends:[ {
         type: Schema.Types.ObjectId,
         //references User model
         ref: 'User'
-    }
+    }]
   },
   {
     ///Mongoose will include virtual props w/ this
@@ -41,3 +41,5 @@ userSchema.virtual('friendCount').get(function () {
   })
 
 const User = model('User', userSchema);
+
+module.exports = User

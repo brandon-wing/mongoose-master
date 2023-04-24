@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/aggregateDB', {
+mongoose.connect('mongodb://127.0.0.1:27017/projectDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-module.exports = mongoose.connection
+//we have to export the connection
+module.exports = mongoose.connection;
