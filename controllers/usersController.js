@@ -25,7 +25,7 @@ module.exports = {
         { _id: req.params.userId },
         { $set: req.body }
         )
-        .then((user) => res.json(user))
+        .then(() => res.json({ message: 'User info has been updated!' }))
         .catch((err) => res.status(500).json(err))
 
       },

@@ -16,11 +16,11 @@ const userSchema = new Schema(
         //email regex!! used this in the last assignment
         match: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b/
       },
-    thoughts: {
+    thoughts:[ {
         type: Schema.Types.ObjectId,
         //references Thought model
         ref: 'Thought'
-    },
+    } ],
     friends:[ {
         type: Schema.Types.ObjectId,
         //references User model

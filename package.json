@@ -3,18 +3,11 @@
   "version": "1.0.1",
   "description": "Mongoose back-end project",
   "main": "index.js",
-  "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "start": "node index"
   },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.10.5"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
   }
 }
