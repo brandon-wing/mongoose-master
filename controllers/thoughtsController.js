@@ -41,5 +41,24 @@ module.exports = {
               .then(() => res.json({ message: 'Success! Thought is no longer in the database.' }))
               .catch((err) => res.status(500).json(err))
 
-      }
+      },
+      newReaction(req, res){
+        Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+          { $addToSet: { reactions: req.body } }
+        )
+          .then(() => res.json({message: 'Reaction created!'}))
+          .catch((err) => res.status(500).json(err))
+        
+      },
+      deleteReaction(req, res){
+      Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        //pulls from the reactions array the reaction with the _id that matches the 'reactionID that is defined in the webpages params
+        { $pull: { reactions: { _id: req.params.reactionId } } }
+        )
+        .then(() => res.json({message: 'Reaction deleted!'}))
+        .catch((err) => res.status(500).json(err))
+
+    }
 }
