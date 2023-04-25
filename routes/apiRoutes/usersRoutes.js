@@ -5,6 +5,5 @@ router.route('/').get(findAllUsers).post(createNewUser);
 //here is a GET + DELETE request for finding/deleting a specific user by ID at the '/:userId' endpoint
 router.route('/:userId').get(findOneUser).delete(deleteOneUser).put(updateUserInfo);
 //here are POST and DELETE requests for adding and deleting a friend
-router.route('/:userId/friends').post(addFriend)
-router.route('/:userId/friends/:friendId').delete(deleteFriend);
+router.route('/:userId/friends/:friendId').delete(deleteFriend).post(addFriend)
 module.exports = router;
