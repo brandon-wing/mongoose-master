@@ -5,3 +5,5 @@ https://stackoverflow.com/questions/17899750/how-can-i-generate-an-objectid-with
 https://mongoosejs.com/docs/2.7.x/docs/schematypes.html
 
 https://mongoosejs.com/docs/api/mongoose.html
+
+https://mongoosejs.com/docs/tutorials/dates.html

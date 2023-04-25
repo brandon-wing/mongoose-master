@@ -18,7 +18,12 @@ const reactionSchema = new Schema(
       },
       createdAt: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
+        //getter method
+        get: function (formattedDate) {
+          // Format the date as a string in a way that works for your application
+          return new Date(formattedDate).toString();
+        }
       }
     }
 );

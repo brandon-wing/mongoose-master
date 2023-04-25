@@ -31,15 +31,11 @@ module.exports = {
       },
       //delete a user by its ID
       deleteOneUser(req, res) {
-      //once the user is deleted, all of the thoughts with its associated userId will be too!
-        User.findOneAndDelete({ _id: req.params.userId })
-          .then((deletedUser) =>
-              Thought.deleteMany({ _id: { $in: deletedUser.thoughts } })
-              )
-              .then(() => res.json({ message: 'Success! User is no longer in the database.' }))
-              .catch((err) => res.status(500).json(err))
-
-      },
+          User.findOneAndDelete({ _id: req.params.userId })
+                .then(() => res.json({ message: 'Success! User is no longer in the database.' }))
+                .catch((err) => res.status(500).json(err))
+  
+        },
       //add a friend POST request
       addFriend(req, res){
         User.findOneAndUpdate(

@@ -15,16 +15,22 @@ module.exports = {
       },
       //create Thought will be used in the POST function in ThoughtsRoutes '/' endpoint
       createNewThought(req, res) {
-        //declaring a variable 
         Thought.create(req.body)
-        //after the thought is created, it has to be added to the thoughts field of its specific user
-        .then((newThought) => {
+          .then((newThought) => {
             return User.findOneAndUpdate(
               { username: req.body.username },
               { $push: { thoughts: newThought._id } }
-            );
+            )
+              .then(() => {
+                res.json(newThought);
+              })
+              .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
           })
-      },
+      }
+      ,
       //updating a Thought's info, this will be the PUT request
       updateThoughtInfo(req, res) {
         Thought.findOneAndUpdate(

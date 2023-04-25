@@ -8,9 +8,13 @@ const thoughtSchema = new Schema(
       minLength: 1,
       maxLength: 280
     },
-    createdAt: {
+createdAt: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
+        get: function (formattedDate) {
+          // Format the date as a string in a way that works for your application
+          return new Date(formattedDate).toString();
+        }
       },
     username: {
         type: String,
@@ -22,6 +26,7 @@ const thoughtSchema = new Schema(
     ///Mongoose will include virtual props w/ this
     toJSON: {
       virtuals: true,
+      getters: true
     },
     id: false,
   }
